@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <br><input type="text" id="name" placeholder="Введите Ваше имя"/><br>
+    <br><input type="text" id="surname" placeholder="Введите Вашу фамилию"/><br>
+    <br><input type="text" id="patronymic" placeholder="Введите Ваше отчество"/><br>
+    <input type="button" id ="display" value="Display" onclick="addRow()"/><br>
+    <table id= "results">
+    <tr>
+    <th>Имя</th>
+    <th>Фамиля</th>
+    <th>Отчество</th>
+    </tr>
+    </table>
+</body>
+<script>
+    function addRow() {
+    var table = document.getElementById('results');
+    var row = document.createElement('tr');
+    var td1 = document.createElement('td');
+    var td2 = document.createElement('td');
+    var td3 = document.createElement('td');
+    td1.innerHTML = document.getElementById('number').value;
+    td2.innerHTML = document.getElementById('name').value;
+    td3.innerHTML = document.getElementById('surname').value;
+    td4.innerHTML = document.getElementById('patronymic').value;
+    row.appendChild(td1);
+    row.appendChild(td2);
+    row.appendChild(td3);
+    table.children[0].insertBefore(row, table.children[0].childNodes[1]);
+}
+</script>
+</html>
