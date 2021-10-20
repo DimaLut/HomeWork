@@ -10,6 +10,7 @@
     <input type="button" id ="display" value="Display" onclick="addRow()"/><br>
     <table id= "results">
     <tr>
+    <th>Номер</th>
     <th>Имя</th>
     <th>Фамиля</th>
     <th>Отчество</th>
@@ -17,20 +18,32 @@
     </table>
 </body>
 <script>
+    const items = [];
+    let number = 1;
     function addRow() {
-    var table = document.getElementById('results');
-    var row = document.createElement('tr');
-    var td1 = document.createElement('td');
-    var td2 = document.createElement('td');
-    var td3 = document.createElement('td');
-    td1.innerHTML = document.getElementById('number').value;
-    td2.innerHTML = document.getElementById('name').value;
-    td3.innerHTML = document.getElementById('surname').value;
-    td4.innerHTML = document.getElementById('patronymic').value;
+    let formValue = {
+    name:document.getElementById('name').value, 
+    surname:document.getElementById('surname').value, 
+    patronymic:document.getElementById('patronymic').value 
+    };
+    
+    let table = document.getElementById('results');
+    let row = document.createElement('tr');
+    let td0 = document.createElement('td');
+    let td1 = document.createElement('td');
+    let td2 = document.createElement('td');
+    let td3 = document.createElement('td');
+    td0.innerHTML = number++;
+    td1.innerHTML = document.getElementById('name').value;
+    td2.innerHTML = document.getElementById('surname').value;
+    td3.innerHTML = document.getElementById('patronymic').value;
+    row.appendChild(td0)
     row.appendChild(td1);
     row.appendChild(td2);
     row.appendChild(td3);
-    table.children[0].insertBefore(row, table.children[0].childNodes[1]);
+    items.push(formValue);
+    //table.children[0].insertBefore(row, table.children[0].childNodes[1]);
+    table.appendChild(row);
 }
 </script>
 </html>
