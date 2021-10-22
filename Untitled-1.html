@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
-</head>
-<body>
-    <br><input type="text" id="name" placeholder="Введите Ваше имя"/><br>
-    <br><input type="text" id="surname" placeholder="Введите Вашу фамилию"/><br>
-    <br><input type="text" id="patronymic" placeholder="Введите Ваше отчество"/><br>
-    <input type="button" id ="display" value="Display" onclick="addRow()"/><br>
-    <table id= "results">
-    <tr>
-    <th>Номер</th>
-    <th>Имя</th>
-    <th>Фамиля</th>
-    <th>Отчество</th>
-    </tr>
+  </head>
+  <body>
+    <br /><input type="text" id="name" placeholder="Введите Ваше имя" /><br />
+    <br /><input
+      type="text"
+      id="surname"
+      placeholder="Введите Вашу фамилию"
+    /><br />
+    <br /><input
+      type="text"
+      id="patronymic"
+      placeholder="Введите Ваше отчество"
+    /><br />
+    <input
+      type="button"
+      id="display"
+      value="Display"
+      onclick="addRow()"
+    /><br />
+    <table id="results">
+      <tr>
+        <th>Номер</th>
+        <th>Имя</th>
+        <th>Фамиля</th>
+        <th>Отчество</th>
+      </tr>
     </table>
-</body>
-<script>
+  </body>
+  <script>
     const items = [];
     let number = 1;
     function addRow() {
-    let formValue = {
-    name:document.getElementById('name').value, 
-    surname:document.getElementById('surname').value, 
-    patronymic:document.getElementById('patronymic').value 
-    };
-    
-    let table = document.getElementById('results');
-    let row = document.createElement('tr');
-    let td0 = document.createElement('td');
-    let td1 = document.createElement('td');
-    let td2 = document.createElement('td');
-    let td3 = document.createElement('td');
-    td0.innerHTML = number++;
-    td1.innerHTML = document.getElementById('name').value;
-    td2.innerHTML = document.getElementById('surname').value;
-    td3.innerHTML = document.getElementById('patronymic').value;
-    row.appendChild(td0)
-    row.appendChild(td1);
-    row.appendChild(td2);
-    row.appendChild(td3);
-    items.push(formValue);
-    //table.children[0].insertBefore(row, table.children[0].childNodes[1]);
-    table.appendChild(row);
-}
-</script>
+      let formValue = {
+        name: document.getElementById("name").value,
+        surname: document.getElementById("surname").value,
+        patronymic: document.getElementById("patronymic").value,
+      };
+      items.push(formValue);
+
+      let table = document.getElementById("results");
+      const row = document.createElement("tr");
+      const td0 = document.createElement("td");
+      const td1 = document.createElement("td");
+      const td2 = document.createElement("td");
+      const td3 = document.createElement("td");
+      td0.innerHTML = items.length;
+      td1.innerHTML = formValue.name;
+      td2.innerHTML = formValue.surname;
+      td3.innerHTML = formValue.patronymic;
+      row.appendChild(td0);
+      row.appendChild(td1);
+      row.appendChild(td2);
+      row.appendChild(td3);
+      table.appendChild(row);
+    }
+  </script>
 </html>
